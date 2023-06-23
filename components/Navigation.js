@@ -6,24 +6,30 @@ import Cart from "@/images/icon-cart.svg";
 import Avatar from "@/images/image-avatar.png";
 import Logo from "@/images/logo.svg";
 
-const Navigation = () => {
+const Navigation = ({ activePage }) => {
   return (
     <section className="mt-7">
       <nav className="flex justify-between font-family items-center w-[1110px] h-[50px] mx-auto">
         <ul className="flex capitalize items-center">
-          <Image
-            src={Logo}
-            alt="logo"
-            width={137.5}
-            height={20}
-            className="mr-14"
-          />
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="logo"
+              width={137.5}
+              height={20}
+              className="mr-14"
+            />
+          </Link>
+
           {links.map(({ id, title, url }) => {
             return (
               <Link
                 key={id}
                 href={url}
-                className="mr-8 font-normal text-[15px] text-[#69707D]"
+                // className="mr-8 font-normal text-[15px] text-[#69707D]"
+                className={`mr-8 font-normal text-[15px] ease-in-out duration-300 hover:text-black ${
+                  activePage === title ? "text-black" : "text-[#69707D]"
+                }`}
               >
                 {title}
               </Link>

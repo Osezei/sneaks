@@ -1,12 +1,12 @@
 import Head from "next/head";
-import Navigation from "@/components/Navigation";
+import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 
 export default function Home() {
+  const activePage = "home";
   return (
-    <section>
-      <Navigation />
+    <Layout activePage={activePage}>
       <Hero />
-    </section>
+    </Layout>
   );
 }
