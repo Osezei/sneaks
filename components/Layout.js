@@ -1,23 +1,17 @@
 import React from "react";
 import Navigation from "./Navigation";
+import Head from "next/head";
 
 const Layout = ({ children, activePage }) => {
   return (
-    <section>
+    <section className="overflow-hidden">
+      <Head>
+        <title>{activePage} -- Sneakers</title>
+      </Head>
       <Navigation activePage={activePage} />
-      <div>{children}</div>
+      {children}
     </section>
   );
 };
 
 export default Layout;
-{
-  /* <section className="overflow-hidden">
-  <Head>
-    <title>{activePage} - Oshoke Oyati</title>
-  </Head>
-  <Header />
-  {children}
-  <Navigation activePage={activePage} />
-</section>; */
-}

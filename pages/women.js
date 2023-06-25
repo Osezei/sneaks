@@ -1,7 +1,13 @@
 import React from "react";
+import Layout from "@/components/Layout";
 
 const WomenPage = () => {
-  return <div>for women</div>;
+  const activePage = "women";
+  return (
+    <Layout activePage={activePage}>
+      <p>women</p>
+    </Layout>
+  );
 };
 
 export default WomenPage;

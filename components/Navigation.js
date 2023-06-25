@@ -9,15 +9,16 @@ import Logo from "@/images/logo.svg";
 const Navigation = ({ activePage }) => {
   return (
     <section className="mt-7">
-      <nav className="flex justify-between font-family items-center w-[1110px] h-[50px] mx-auto">
-        <ul className="flex capitalize items-center">
+      <nav className="hidden lg:flex justify-between font-family items-center lg:w-[1110px] h-[50px] mx-auto">
+        <ul className="flex capitalize items-center relative">
           <Link href="/">
             <Image
               src={Logo}
               alt="logo"
               width={137.5}
               height={20}
-              className="mr-14"
+              className="mr-14 w-[137.5px] h-[20px]"
+              priority
             />
           </Link>
 
@@ -27,8 +28,8 @@ const Navigation = ({ activePage }) => {
                 key={id}
                 href={url}
                 // className="mr-8 font-normal text-[15px] text-[#69707D]"
-                className={`mr-8 font-normal text-[15px] ease-in-out duration-300 hover:text-black ${
-                  activePage === title ? "text-black" : "text-[#69707D]"
+                className={`mr-8 font-normal text-[15px] nav-links font-family ${
+                  activePage === title ? "text-[#ff7e1b] " : "null"
                 }`}
               >
                 {title}
@@ -42,9 +43,17 @@ const Navigation = ({ activePage }) => {
             alt="cart"
             height={21.82}
             width={20}
-            className="mr-[46px]"
+            className="mr-[46px] w-[20px] h-[21.82px] overflow-hidden"
+            priority
           />
-          <Image src={Avatar} alt="avatar" height={50} width={50} />
+          <Image
+            src={Avatar}
+            alt="avatar"
+            height={50}
+            width={50}
+            className="w-[50px] h-[50px]"
+            priority
+          />
         </div>
       </nav>
       <div className="bg-[#E4E9F2] h-[1px] w-[1110px] mx-auto mt-[34px]"></div>

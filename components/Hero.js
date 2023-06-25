@@ -21,7 +21,7 @@ const Hero = () => {
                       alt={title}
                       width={445}
                       height={445}
-                      className="rounded-[15px] "
+                      className="rounded-[15px] w-[445px] h-[445px]"
                     />
                   ) : null}
                 </article>
@@ -38,7 +38,7 @@ const Hero = () => {
                   width={88}
                   height={88}
                   onClick={() => setToggled(id)}
-                  className={`${
+                  className={`w-[88px] h-[88px] ${
                     toggled === id
                       ? "mr-[31px] rounded-[10px] cursor-pointer border-2 border-[#FF7E1B] ease-in-out"
                       : "mr-[31px] rounded-[10px] cursor-pointer ease-in-out"
