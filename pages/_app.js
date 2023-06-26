@@ -1,11 +1,10 @@
 import "@/styles/globals.css";
-import { Provider } from "react-redux";
-import Navigation from "@/components/Navigation";
+import { AppProvider } from "@/context";
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <AppProvider>
       <Component {...pageProps} />
-    </>
+    </AppProvider>
   );
 }
