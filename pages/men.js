@@ -5,7 +5,7 @@ const MenPage = () => {
   const activePage = "men";
   return (
     <Layout activePage={activePage}>
-      <p>for men</p>
+      <p>nejqd</p>
     </Layout>
   );
 };

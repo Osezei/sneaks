@@ -7,7 +7,7 @@ const AppContext = React.createContext();
 const AppProvider = function ({ children }) {
   const initialState = {
     shoes: kicks,
-    AllShoes: kicks,
+    allShoes: kicks,
     activeFilter: "all",
     minimumPrice: 0,
     maximumPrice: 3000,
@@ -18,11 +18,48 @@ const AppProvider = function ({ children }) {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const manageStockInc = (value, stock) => {
+    dispatch({ type: "AMOUNT_INCREASE", payload: { value, stock } });
+  };
+  const manageStockDec = (value, stock) => {
+    dispatch({ type: "AMOUNT_DECREASE", payload: { value, stock } });
+  };
+  useEffect(() => {
+    dispatch({ type: "SET_PRICE" });
+  }, []);
+
   const manageCategory = (value) => {
     dispatch({ type: "MANAGE_CATEGORY", payload: value });
   };
+  const manageGender = (value) => {
+    dispatch({ type: "MANAGE_GENDER", payload: value });
+  };
+  const manageCompany = (value) => {
+    dispatch({ type: "MANAGE_COMPANY", payload: value });
+  };
+  const manageSort = (value) => {
+    dispatch({ type: "MANAGE_SORT", payload: value });
+  };
+  const priceFilterUpdate = (value) => {
+    dispatch({ type: "UPDATE_FILTERS", payload: value });
+  };
+  const clearAllFilters = () => {
+    dispatch({ type: "CLEAR" });
+  };
   return (
-    <AppContext.Provider value={{ ...state, manageCategory }}>
+    <AppContext.Provider
+      value={{
+        ...state,
+        manageCategory,
+        manageGender,
+        manageCompany,
+        manageSort,
+        priceFilterUpdate,
+        clearAllFilters,
+        manageStockInc,
+        manageStockDec,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
