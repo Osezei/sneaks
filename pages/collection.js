@@ -19,6 +19,7 @@ const Collection = () => {
     manageSort,
     priceFilterUpdate,
     clearAllFilters,
+    activeFilter,
   } = useGlobalContext();
 
   const noOfItems = shoes.length;
@@ -42,11 +43,12 @@ const Collection = () => {
   }
   return (
     <Layout activePage={activePage}>
-      <section className="flex">
+      <section className="lg:w-[1110px] mx-auto flex gap-x-6 mt-3">
         {/* section for buttons */}
         {/* category */}
         <div>
-          <div>
+          <div className="mb-3">
+            <h3 className="font-bold text-normal mb-1">Category</h3>
             <ul>
               {["all", ...new Set(category)].map((item, index) => {
                 return (
@@ -55,6 +57,11 @@ const Collection = () => {
                     onClick={() => {
                       manageCategory(item);
                     }}
+                    className={`font-medium mb-[2px] capitalize text-lg cursor-pointer ${
+                      activeFilter === item.toLowerCase()
+                        ? "text-[#ff7e1b]"
+                        : null
+                    }`}
                   >
                     {item}
                   </li>
@@ -64,11 +71,20 @@ const Collection = () => {
           </div>
           {/* end of category */}
           {/* company */}
-          <div>
+          <div className="mb-3">
+            <h3 className="font-bold text-normal mb-1">Company</h3>
             <ul>
               {["all", ...new Set(company)].map((item, index) => {
                 return (
-                  <li key={index} onClick={() => manageCompany(item)}>
+                  <li
+                    key={index}
+                    onClick={() => manageCompany(item)}
+                    className={` font-medium mb-[2px] capitalize text-lg cursor-pointer ${
+                      activeFilter === item.toLowerCase()
+                        ? "text-[#ff7e1b]"
+                        : null
+                    }`}
+                  >
                     {item}
                   </li>
                 );
@@ -77,11 +93,20 @@ const Collection = () => {
           </div>
           {/* end of company */}
           {/* gender */}
-          <div>
+          <div className="mb-3">
+            <h3 className="font-bold text-normal mb-1">Gender</h3>
             <ul>
               {["all", ...new Set(gender)].map((item, index) => {
                 return (
-                  <li key={index} onClick={() => manageGender(item)}>
+                  <li
+                    key={index}
+                    onClick={() => manageGender(item)}
+                    className={`font-medium mb-[2px] capitalize text-lg cursor-pointer ${
+                      activeFilter === item.toLowerCase()
+                        ? "text-[#ff7e1b]"
+                        : null
+                    }`}
+                  >
                     {item}
                   </li>
                 );
@@ -91,8 +116,9 @@ const Collection = () => {
           {/* end of gender */}
           {/* price filter */}
           <div>
-            <h3>price</h3>
-            <p>{price}</p>
+            <h3 className="font-bold text-normal mb-1">
+              Price: $<span>{price}</span>
+            </h3>
             <input
               type="range"
               name={price}
@@ -102,22 +128,34 @@ const Collection = () => {
               onChange={(e) => priceFilterUpdate(e.target.value)}
             />
           </div>
-          <button onClick={clearAllFilters}>clear</button>
+          <button
+            onClick={clearAllFilters}
+            className="bg-red-700 font-bold  text-white py-2 px-5 hover:text-red-700 hover:bg-[#ff7e1b] ease-in-out duration-300"
+          >
+            Clear Items
+          </button>
           {/* end of price filter */}
           {/* end of buttons */}
         </div>
+
         <div>
-          <div>
-            <p>Sort by</p>
-            <select name="" onChange={(e) => manageSort(e.target.value)}>
-              <option value="lowest">Price (Lowest)</option>
-              <option value="highest">Price (Highest)</option>
-              <option value="ascending">Name (A-Z)</option>
-              <option value="descending">Name (Z-A)</option>
-            </select>
+          <div className="flex justify-between mb-5">
+            <div className="flex items-center">
+              <p className="font-semibold">Sort by:</p>
+              <select name="" onChange={(e) => manageSort(e.target.value)}>
+                <option value="lowest">Price (Lowest)</option>
+                <option value="highest">Price (Highest)</option>
+                <option value="ascending">Name (A-Z)</option>
+                <option value="descending">Name (Z-A)</option>
+              </select>
+            </div>
+            <p className="bg-[#ff7e1b] text-white font-bold rounded-full p-2">
+              {" "}
+              {noOfItems}
+            </p>
           </div>
-          <div>
-            <p>{noOfItems} of shoes available</p>
+
+          <div className="grid grid-cols-4 gap-6">
             {shoes.map((shoe) => {
               const { id, image, name, description } = shoe;
               if (shoe.gender === "men") {
