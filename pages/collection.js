@@ -2,8 +2,8 @@ import React from "react";
 import Layout from "@/components/Layout";
 import { useGlobalContext } from "@/context";
 import { kicks } from "@/data";
-import WomenSection from "@/components/WomenSection";
-import MenSection from "@/components/MenSection";
+import Image from "next/image";
+import Link from "next/link";
 
 const Collection = () => {
   const activePage = "collections";
@@ -140,7 +140,7 @@ const Collection = () => {
 
         <div>
           <div className="flex justify-between mb-5">
-            <div className="flex items-center">
+            <div className="flex items-center justify-between">
               <p className="font-semibold">Sort by:</p>
               <select name="" onChange={(e) => manageSort(e.target.value)}>
                 <option value="lowest">Price (Lowest)</option>
@@ -157,10 +157,26 @@ const Collection = () => {
 
           <div className="grid grid-cols-4 gap-6">
             {shoes.map((shoe) => {
-              const { id, image, name, description } = shoe;
-              if (shoe.gender === "men") {
-                return <MenSection key={id} {...shoe} />;
-              } else return <WomenSection key={id} {...shoe} />;
+              const { id, image, name, price } = shoe;
+              return (
+                <article key={id} className="relative">
+                  <Image
+                    src={image}
+                    width={300}
+                    height={300}
+                    alt={name}
+                    className="w-[300px] h-[300px] overflow-hidden object-cover hover:shadow-[#ff7e1b] shadow-lg ease-in-out duration-300"
+                  />
+                  <div className="flex justify-between mt-3">
+                    <p className="capitalize text-lg font-semibold text-[#ff7e1b]">
+                      {name}
+                    </p>
+                    <p className="font-bold">${price}</p>
+                  </div>
+                  {/* <Link href={<Item index={id} {...id} />}>here</Link> */}
+                  <Link href={`./collection/${name}`}>select</Link>
+                </article>
+              );
             })}
           </div>
         </div>
