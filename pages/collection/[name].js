@@ -5,9 +5,15 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { kicks } from "@/data";
 import Image from "next/image";
+import { useParams } from "react-router-dom";
 
 const SingleItem = () => {
   const [theItem, setTheItem] = useState("airforce");
+  const { id } = useParams();
+  const { allShoes, addToCart, manageStockInc, manageStockDec, tempstock } =
+    useGlobalContext();
+
+  const single = allShoes.find((item) => item.id === +id);
 
   const router = useRouter();
 
@@ -22,12 +28,20 @@ const SingleItem = () => {
     (kick) => kick.name.toLowerCase() === theItem.toLowerCase()
   );
 
-  const { id, name, image } = singlePage;
+  const { name, image } = singlePage;
 
   return (
     <article>
       <p>{name}</p>
       <Image src={image} width={500} height={500} alt={name} />
+      <div>
+        <Link
+          href="/cart"
+          onClick={() => addToCart(single.id, tempstock, single)}
+        >
+          add to cart
+        </Link>
+      </div>
     </article>
   );
 };

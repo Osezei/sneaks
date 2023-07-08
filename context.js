@@ -12,10 +12,12 @@ const AppProvider = function ({ children }) {
     minimumPrice: 0,
     maximumPrice: 3000,
     price: "",
+    cart: [],
     totalShoes: 0,
     totalAmount: 0,
     tempstock: 1,
   };
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const manageStockInc = (value, stock) => {
@@ -46,10 +48,58 @@ const AppProvider = function ({ children }) {
   const clearAllFilters = () => {
     dispatch({ type: "CLEAR" });
   };
+
+  //handling cart
+
+  useEffect(() => {
+    dispatch({ type: "COUNT_TOTAL_CART_ITEMS" });
+  }, []);
+
+  const addToCart = (id, amount, item) => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        id,
+        amount,
+        item,
+      },
+    });
+  };
+  const clearCartItems = () => {
+    dispatch({ type: "CLEAR_CART_ITEMS" });
+  };
+  const increaseCartAmount = (id, value, max) => {
+    dispatch({
+      type: "INCREASE_CART_AMOUNT",
+      payload: {
+        id,
+        value,
+        max,
+      },
+    });
+  };
+  const decreaseCartAmount = (id, value, min) => {
+    dispatch({
+      type: "DECREASE_CART_AMOUNT",
+      payload: {
+        id,
+        value,
+        min,
+      },
+    });
+  };
+  const removeItem = (id) => {
+    dispatch({ type: "REMOVE_ITEM", payload: id });
+  };
   return (
     <AppContext.Provider
       value={{
         ...state,
+        addToCart,
+        removeItem,
+        decreaseCartAmount,
+        increaseCartAmount,
+        clearCartItems,
         manageCategory,
         manageGender,
         manageCompany,
