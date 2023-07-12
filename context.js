@@ -53,7 +53,7 @@ const AppProvider = function ({ children }) {
 
   useEffect(() => {
     dispatch({ type: "COUNT_TOTAL_CART_ITEMS" });
-  }, []);
+  }, [state.cart]);
 
   const addToCart = (id, amount, item) => {
     dispatch({

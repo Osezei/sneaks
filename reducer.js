@@ -135,6 +135,9 @@ const reducer = function (state, action) {
       const newItem = {
         id: id,
         name: item.name,
+        company: item.company,
+        amount,
+        image: item.image,
         price: item.price,
         max: item.stock,
       };
@@ -187,9 +190,11 @@ const reducer = function (state, action) {
   }
   if (action.type === "INCREASE_CART_AMOUNT") {
     const { id } = action.payload;
+
     const tempCart = state.cart.map((item) => {
       if (item.id === id) {
         let newAmount = item.amount + 1;
+
         if (newAmount > item.max) {
           newAmount = item.max;
         }

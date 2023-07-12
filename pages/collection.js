@@ -44,7 +44,7 @@ const Collection = () => {
   }
   return (
     <Layout activePage={activePage}>
-      <section className="lg:w-[1110px] mx-auto flex gap-x-6 mt-3">
+      <section className="lg:w-[1110px] mx-auto flex gap-x-6 mt-3 text-[#1D2026]">
         {/* section for buttons */}
         {/* category */}
         <div>
@@ -58,7 +58,7 @@ const Collection = () => {
                     onClick={() => {
                       manageCategory(item);
                     }}
-                    className={`font-medium mb-[2px] capitalize text-lg cursor-pointer ${
+                    className={`font-normal mb-[2px] capitalize text-[15px] cursor-pointer ${
                       activeFilter === item.toLowerCase()
                         ? "text-[#ff7e1b]"
                         : null
@@ -80,7 +80,7 @@ const Collection = () => {
                   <li
                     key={index}
                     onClick={() => manageCompany(item)}
-                    className={` font-medium mb-[2px] capitalize text-lg cursor-pointer ${
+                    className={` font-normal mb-[2px] capitalize text-[15px] cursor-pointer ${
                       activeFilter === item.toLowerCase()
                         ? "text-[#ff7e1b]"
                         : null
@@ -102,7 +102,7 @@ const Collection = () => {
                   <li
                     key={index}
                     onClick={() => manageGender(item)}
-                    className={`font-medium mb-[2px] capitalize text-lg cursor-pointer ${
+                    className={`font-normal mb-[2px] capitalize text-[15px] cursor-pointer ${
                       activeFilter === item.toLowerCase()
                         ? "text-[#ff7e1b]"
                         : null
@@ -117,7 +117,7 @@ const Collection = () => {
           {/* end of gender */}
           {/* price filter */}
           <div>
-            <h3 className="font-bold text-normal mb-1">
+            <h3 className="font-normal text-normal mb-1">
               Price: $<span>{price}</span>
             </h3>
             <input
