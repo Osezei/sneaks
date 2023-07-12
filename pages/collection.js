@@ -150,10 +150,10 @@ const Collection = () => {
                 <option value="descending">Name (Z-A)</option>
               </select>
             </div>
-            <p className="bg-[#ff7e1b] text-white font-bold rounded-full p-2">
+            {/* <p className="bg-[#ff7e1b] text-white font-bold rounded-full p-2">
               {" "}
               {noOfItems}
-            </p>
+            </p> */}
           </div>
 
           <div className="grid grid-cols-4 gap-6">
@@ -166,13 +166,13 @@ const Collection = () => {
                     width={300}
                     height={300}
                     alt={name}
-                    className="w-[300px] h-[300px] overflow-hidden object-cover hover:shadow-[#ff7e1b] hover:opac shadow-lg ease-in-out duration-300"
+                    className="w-[300px] h-[300px] overflow-hidden object-cover hover:shadow-[#ff7e1b] shadow-lg ease-in-out duration-300"
                   />
                   <div className="flex justify-between mt-1">
-                    <p className="capitalize text-lg font-semibold text-[#ff7e1b]">
+                    <p className="capitalize text-sm font-semibold text-[#ff7e1b]">
                       {name}
                     </p>
-                    <p className="font-bold">${price}</p>
+                    <p className="text-sm font-semibold">${price}</p>
                   </div>
                   <div className="absolute top-[33%] right-[30%] rounded-full hover:opacity-100 opacity-0 ease-in-out duration-300">
                     <Link href={`./collection/${name}`} className="">

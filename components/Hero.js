@@ -9,7 +9,7 @@ const Hero = () => {
   const [toggled, setToggled] = useState(1);
   return (
     <>
-      <section className="flex justify-between w-[1015px] mx-auto mt-[90px]">
+      <section className="flex justify-between w-[1015px] mx-auto">
         <div className="">
           <div>
             {img.map(({ id, image, title }) => {

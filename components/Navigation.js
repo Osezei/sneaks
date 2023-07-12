@@ -7,16 +7,20 @@ import Avatar from "@/images/image-avatar.png";
 import Logo from "@/images/logo.svg";
 import Navbar from "../images/icon-menu.svg";
 import CloseButton from "../images/icon-close.svg";
+import { useGlobalContext } from "@/context";
 import "animate.css";
+
 const Navigation = ({ activePage }) => {
+  const { cart } = useGlobalContext();
+  const noOfItems = cart.length;
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
   return (
-    <section className="">
-      <nav className="hidden mt-7 lg:flex justify-between font-family items-center lg:w-[1110px] h-[50px] mx-auto">
+    <section className="lg:mb-[90px]">
+      <nav className="hidden mt-7 lg:flex justify-between font-family items-center lg:w-[1110px]  h-[50px] mx-auto">
         <ul className="flex capitalize items-center relative">
           <Link href="/">
             <Image
@@ -45,14 +49,21 @@ const Navigation = ({ activePage }) => {
           })}
         </ul>
         <div className="flex items-center">
-          <Image
-            src={Cart}
-            alt="cart"
-            height={21.82}
-            width={20}
-            className="mr-[46px] w-[20px] h-[21.82px] overflow-hidden"
-            priority
-          />
+          <div className="">
+            <Link href="/cart">
+              <Image
+                src={Cart}
+                alt="cart"
+                height={21.82}
+                width={20}
+                className="mr-[46px] w-[20px] h-[21.82px] overflow-hidden relative"
+                priority
+              />
+            </Link>
+            <p className="bg-[#ff7e1b] text-white absolute top-[26px] right-[250px] rounded-full px-2">
+              {noOfItems}
+            </p>
+          </div>
           <Image
             src={Avatar}
             alt="avatar"
@@ -118,14 +129,21 @@ const Navigation = ({ activePage }) => {
           </Link>
         </div>
         <div className="flex items-center gap-x-3">
-          <Image
-            src={Cart}
-            alt="cart"
-            height={21.82}
-            width={20}
-            className="w-[20px] h-[21.82px]"
-            priority
-          />
+          <div>
+            <Link href="/cart">
+              <Image
+                src={Cart}
+                alt="cart"
+                height={21.82}
+                width={20}
+                className="w-[20px] h-[21.82px]"
+                priority
+              />
+            </Link>
+            <p className="bg-[#ff7e1b] text-white absolute top-[6px] right-[70px] rounded-full px-2">
+              {noOfItems}
+            </p>
+          </div>
           <Image
             src={Avatar}
             alt="avatar"
