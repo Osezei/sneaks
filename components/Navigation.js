@@ -76,7 +76,7 @@ const Navigation = ({ activePage }) => {
       </nav>
       <div className="bg-[#E4E9F2] h-[1px] w-[1110px] mx-auto mt-[34px] hidden lg:block"></div>
       {/* mobile screen and tablet screen */}
-      <nav className="mt-4 lg:hidden flex justify-between items-center w-[90%] mx-auto">
+      <nav className="mt-4 mb-[28px] lg:hidden flex justify-between items-center w-[90%] mx-auto">
         <div className="flex items-center">
           <div className="">
             <Image
@@ -88,7 +88,7 @@ const Navigation = ({ activePage }) => {
               onClick={handleToggle}
             />
             <div className={toggle ? "block " : "hidden"}>
-              <div className="absolute w-[250px] h-full top-0 left-0 bg-white pl-6 pt-8">
+              <div className="absolute w-[250px] h-screen top-0 left-0 bg-white pl-6 pt-8">
                 <Image
                   src={CloseButton}
                   alt="closeButton w-[13.44px] h-[13.44px]"
@@ -140,7 +140,7 @@ const Navigation = ({ activePage }) => {
                 priority
               />
             </Link>
-            <p className="bg-[#ff7e1b] text-white absolute top-[6px] right-[70px] rounded-full px-2">
+            <p className="bg-[#ff7e1b] text-white absolute top-[3px] right-[41px] md:right-[62px] rounded-full px-2">
               {noOfItems}
             </p>
           </div>

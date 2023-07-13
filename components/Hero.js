@@ -9,7 +9,7 @@ const Hero = () => {
   const [toggled, setToggled] = useState(1);
   return (
     <>
-      <section className="flex justify-between w-[1015px] mx-auto">
+      <section className="flex flex-col md:flex-row lg:justify-between md:w-[700px] lg:w-[1015px] mx-auto">
         <div className="">
           <div>
             {img.map(({ id, image, title }) => {
@@ -21,14 +21,14 @@ const Hero = () => {
                       alt={title}
                       width={445}
                       height={445}
-                      className="rounded-[15px] w-[445px] h-[445px]"
+                      className="md:rounded-[15px] mx-auto md:mx-auto lg:w-[445px] lg:h-[445px] object-fit"
                     />
                   ) : null}
                 </article>
               );
             })}
           </div>
-          <div className="flex mt-8">
+          <div className="hidden lg:flex mt-8">
             {img.map(({ image, id, title }) => {
               return (
                 <Image
@@ -50,28 +50,28 @@ const Hero = () => {
         </div>
 
         {/* texts */}
-        <div className="w-[445px] h-[426px] font-family my-auto">
+        <div className="md:w-[445px] lg:h-[426px] mt-7 lg:mt-0 font-family my-auto px-6 lg:px-0">
           <div>
             <h4 className="text-[#FF7E1B] text-[13px] font-bold uppercase">
               Sneaker Company
             </h4>
-            <h3 className="my-6 font-bold text-[44px] text-[#1D2026] leading-[44px]">
+            <h3 className="lg:my-6 font-bold lg:text-[44px] text-[28px] text-[#1D2026] leading-[44px]">
               Fall Limited Edition Sneakers
             </h3>
-            <p className="text-[#69707D] text-[16px] leading-[26px]">
+            <p className="text-[#69707D] text-[16px] leading-[26px] my-[15px] lg:my-0">
               These low-profile sneakers are your perfect casual wear companion.
               Featuring a durable rubber outer sole, they’ll withstand
               everything the weather can offer.
             </p>
           </div>
           {/* link */}
-          <div className="mt-6">
+          <div className="lg:mt-6">
             <Link
               href="/collection"
-              className="text-white ease-in-out duration-300 hover:text-[#FF7E1B] font-semibold text-lg bg-[#FF7E1B] hover:bg-white rounded-lg flex justify-center py-4"
+              className="text-white ease-in-out duration-300 hover:text-[#FF7E1B] font-semibold text-base lg:text-lg bg-[#FF7E1B] hover:bg-white rounded-md lg:rounded-lg flex justify-center py-4"
             >
               Check out collections
-              <span className="my-auto ml-2 text-normal">
+              <span className="my-auto ml-2 text-sm lg:text-normal">
                 <BsArrowUpRightCircle />
               </span>
             </Link>
