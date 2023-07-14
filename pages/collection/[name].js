@@ -39,7 +39,7 @@ const SingleItem = () => {
     <>
       <Navigation />
 
-      <article className="flex justify-between w-[1015px] mx-auto mt-[90px] items-center">
+      <article className="flex flex-col md:flex-row gap-y-6 md:gap-y-0 md:justify-center gap-x-4 lg:gap-x-0 lg:justify-between lg:w-[1015px] mx-auto mt-10 lg:mt-[90px] items-center">
         <div>
           <Image
             src={image}
@@ -47,26 +47,34 @@ const SingleItem = () => {
             height={445}
             alt={name}
             priority
-            className="rounded-2xl"
+            className="rounded-2xl hidden lg:block"
+          />
+          <Image
+            src={image}
+            width={200}
+            height={200}
+            alt={name}
+            priority
+            className="rounded-2xl lg:hidden"
           />
         </div>
 
-        <div className="w-[445px] ">
+        <div className="w-[300px] md:w-[350px] lg:w-[445px] ">
           <p className="uppercase text-[13px] text-[#FF7E1B] tracking-widest font-bold">
             sneaker company
           </p>
-          <p className="text-[44px] mt-[27px] mb-8 capitalize font-bold">
+          <p className="text-[44px] lg:mt-[27px] lg:mb-8 capitalize font-bold">
             {name}
           </p>
           <p className="text-[#69707D] text-[16px] tracking-wide">
             {description}
           </p>
-          <p className="text-[28px] font-bold mt-7 mb-[68px]">
+          <p className="text-[28px] font-bold mt-2 mb-22 lg:mt-7 lg:mb-[68px]">
             <span>$</span>
             {price}.00
           </p>
-          <div className="flex gap-x-4">
-            <div className="flex items-center justify-between w-[157px] h-[56px] bg-[#F6F8FD] rounded-2xl px-4">
+          <div className="flex gap-x-2 lg:gap-x-4">
+            <div className="flex items-center justify-between w-[100px] lg:w-[157px] h-[56px] bg-[#F6F8FD] rounded-2xl px-4">
               <button
                 onClick={() => manageStockDec(tempstock, stock)}
                 className="text-xl font-bold text-[#FF7E1B]"
@@ -85,9 +93,9 @@ const SingleItem = () => {
               <Link
                 href="/cart"
                 onClick={() => addToCart(singlePage.id, tempstock, singlePage)}
-                className="flex justify-center items-center text-white text-[16px] font-bold w-[272px] h-[56px] bg-[#FF7E1B] ease-in-out duration-300 border-2 hover:bg-white hover:text-[#FF7E1B] rounded-2xl"
+                className="flex justify-center items-center text-white text-[16px] font-bold w-[170px] lg:w-[272px] h-[56px] bg-[#FF7E1B] ease-in-out duration-300 border-2 hover:bg-white hover:text-[#FF7E1B] rounded-2xl"
               >
-                <span className="mr-[15.54px]">
+                <span className="mr-1 lg:mr-[15.54px]">
                   <BsCart3 />
                 </span>
                 Add to cart

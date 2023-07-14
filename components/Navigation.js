@@ -49,18 +49,18 @@ const Navigation = ({ activePage }) => {
           })}
         </ul>
         <div className="flex items-center">
-          <div className="">
+          <div className=" relative">
             <Link href="/cart">
               <Image
                 src={Cart}
                 alt="cart"
                 height={21.82}
                 width={20}
-                className="mr-[46px] w-[20px] h-[21.82px] overflow-hidden relative"
+                className="mr-[46px] w-[20px] h-[21.82px] overflow-hidden "
                 priority
               />
             </Link>
-            <p className="bg-[#ff7e1b] text-white absolute top-[26px] right-[250px] rounded-full px-2">
+            <p className="bg-[#ff7e1b] text-white absolute top-[-12px] right-[30px] rounded-full px-2">
               {noOfItems}
             </p>
           </div>
@@ -129,7 +129,7 @@ const Navigation = ({ activePage }) => {
           </Link>
         </div>
         <div className="flex items-center gap-x-3">
-          <div>
+          <div className="relative">
             <Link href="/cart">
               <Image
                 src={Cart}
@@ -140,7 +140,7 @@ const Navigation = ({ activePage }) => {
                 priority
               />
             </Link>
-            <p className="bg-[#ff7e1b] text-white absolute top-[3px] right-[41px] md:right-[62px] rounded-full px-2">
+            <p className="bg-[#ff7e1b] text-white absolute top-[-15px] right-[-15px] rounded-full px-2">
               {noOfItems}
             </p>
           </div>
