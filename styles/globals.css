@@ -48,3 +48,6 @@ body {
 .h6 {
   font-family: "Kumbh Sans", sans-serif;
 }
+.mail {
+  word-wrap: break-word;
+}
