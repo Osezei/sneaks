@@ -6,12 +6,25 @@ import Me from "../images/mee.jpeg";
 const About = () => {
   const activePage = "about";
   return (
-    <Layout activePage={activePage}>
-      <section className="flex justify-center items-center gap-x-6">
+    <Layout activePage={activePage} className="">
+      <section className="flex flex-col lg:flex-row justify-center items-center gap-x-6 w-[90%] lg:w-[100%] mx-auto">
         <div className="">
-          <Image width={500} height={500} className="" src={Me} alt="headboy" />
+          <Image
+            width={500}
+            height={500}
+            className="hidden lg:block"
+            src={Me}
+            alt="headboy"
+          />
+          <Image
+            width={500}
+            height={250}
+            className="lg:hidden"
+            src={Me}
+            alt="headboy"
+          />
         </div>
-        <div className="w-[420px]">
+        <div className="lg:w-[420px] mt-5 lg:mt-0">
           <p>
             I am a Frontend Developer able to build a Web presence from the
             ground concept, layout and UI to re-useable code, a goal-oriented
