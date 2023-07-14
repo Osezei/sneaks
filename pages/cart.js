@@ -21,8 +21,8 @@ const Cart = () => {
     return (
       <>
         <Navigation />
-        <div className="flex justify-center">
-          <p className="items-center flex text-3xl font-semibold">
+        <div className="flex justify-center w-[90%] lg:w-[100%]">
+          <p className="items-center flex text-3xl font-semibold mt-32">
             Your cart is empty!{" "}
             <span className="pl-2 text-[#FF7E1B]">
               <CiFaceFrown />
@@ -36,7 +36,7 @@ const Cart = () => {
   return (
     <>
       <Navigation />
-      <section className="w-[890px] mx-auto">
+      <section className="w-[90%] lg:w-[890px] mx-auto">
         {cart.map((item) => {
           const { name, company, id, image, price, amount, max } = item;
           return (
@@ -50,6 +50,7 @@ const Cart = () => {
                     alt={name}
                     className="w-[100px] h-[100px] overflow-hidden object-cover"
                   />
+
                   <p className="uppercase ">
                     <span className="pr-2 ">{company}</span>
                     {name}
@@ -97,11 +98,19 @@ const Cart = () => {
           );
         })}
       </section>
-      <div>
-        <button onClick={clearCartItems}>clear cart</button>
-        <div>
-          <p>${totalAmount.toFixed(0)}</p>
+      <div className="text-center">
+        <div className="font-semibold mb-4">
+          <p className="text-[#FF7E1B]">
+            TOTAL:
+            <span className="ml-1 text-black">${totalAmount.toFixed(0)}</span>
+          </p>
         </div>
+        <button
+          onClick={clearCartItems}
+          className="uppercase bg-red-700 text-[#FF7E1B] px-4 py-2 font-semibold hover:text-red-700 hover:bg-[#FF7E1B] ease-in-out duration-300 "
+        >
+          clear cart
+        </button>
       </div>
     </>
   );

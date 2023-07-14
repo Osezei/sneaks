@@ -5,7 +5,7 @@ const Contact = () => {
   const activePage = "contact";
   return (
     <Layout activePage={activePage}>
-      <section className="text-center mt-28 w-[90%]">
+      <section className="text-center mt-28 w-[90%] mx-auto">
         <h3 className=" uppercase text-xl text-text-color mb-2">
           Send me a message
         </h3>

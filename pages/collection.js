@@ -44,7 +44,7 @@ const Collection = () => {
   }
   return (
     <Layout activePage={activePage}>
-      <section className="lg:w-[1110px] w-[327px] md:w-[700px] mx-auto flex flex-col md:flex-row md:gap-x-6 mt-3 text-[#1D2026]">
+      <section className="lg:w-[1110px] w-[90%] mx-auto flex flex-col md:flex-row md:gap-x-6 mt-3 text-[#1D2026]">
         {/* section for buttons */}
         {/* category */}
         <div className="">
@@ -168,13 +168,7 @@ const Collection = () => {
                     alt={name}
                     className="w-[300px] h-[300px] overflow-hidden object-cover hover:shadow-[#ff7e1b] shadow-lg ease-in-out duration-300"
                   />
-                  {/* <Image
-                    src={image}
-                    width={150}
-                    height={150}
-                    alt={name}
-                    className="w-[150px] h-[150px] overflow-hidden object-cover hover:shadow-[#ff7e1b] md:hidden shadow-lg ease-in-out duration-300"
-                  /> */}
+
                   <div className="flex justify-between mt-1">
                     <p className="capitalize text-sm font-semibold text-[#ff7e1b]">
                       {name}
