@@ -21,7 +21,7 @@ const Cart = () => {
     return (
       <>
         <Navigation />
-        <div className="flex justify-center w-[90%] lg:w-[100%]">
+        <div className="flex justify-center w-[90%] lg:w-[100%] mx-auto">
           <p className="items-center flex text-3xl font-semibold mt-32">
             Your cart is empty!{" "}
             <span className="pl-2 text-[#FF7E1B]">

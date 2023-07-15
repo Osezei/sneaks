@@ -39,7 +39,7 @@ const SingleItem = () => {
     <>
       <Navigation />
 
-      <article className="flex flex-col md:flex-row gap-y-6 md:gap-y-0 md:justify-center gap-x-4 lg:gap-x-0 lg:justify-between lg:w-[1015px] mx-auto mt-10 lg:mt-[90px] items-center">
+      <article className="flex flex-col md:flex-row gap-y-6 md:gap-y-0 md:justify-center gap-x-4 lg:gap-x-0 lg:justify-between w-[90%] lg:w-[1015px] mx-auto mt-10 lg:mt-[90px] items-center">
         <div>
           <Image
             src={image}
@@ -47,19 +47,11 @@ const SingleItem = () => {
             height={445}
             alt={name}
             priority
-            className="rounded-2xl hidden lg:block"
-          />
-          <Image
-            src={image}
-            width={200}
-            height={200}
-            alt={name}
-            priority
-            className="rounded-2xl lg:hidden"
+            className="lg:rounded-2xl"
           />
         </div>
 
-        <div className="w-[300px] md:w-[350px] lg:w-[445px] ">
+        <div className="w-[90%] md:w-[445px]">
           <p className="uppercase text-[13px] text-[#FF7E1B] tracking-widest font-bold">
             sneaker company
           </p>
@@ -73,8 +65,9 @@ const SingleItem = () => {
             <span>$</span>
             {price}.00
           </p>
+
           <div className="flex gap-x-2 lg:gap-x-4">
-            <div className="flex items-center justify-between w-[100px] lg:w-[157px] h-[56px] bg-[#F6F8FD] rounded-2xl px-4">
+            <div className="flex items-center justify-between w-[90%] lg:w-[157px] h-[56px] bg-[#F6F8FD] rounded-2xl px-4">
               <button
                 onClick={() => manageStockDec(tempstock, stock)}
                 className="text-xl font-bold text-[#FF7E1B]"
