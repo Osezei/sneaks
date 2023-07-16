@@ -83,8 +83,7 @@ const SingleItem = () => {
               </button>
             </div>
             <div>
-              <Link
-                href="/cart"
+              <button
                 onClick={() => addToCart(singlePage.id, tempstock, singlePage)}
                 className="flex justify-center items-center text-white text-[16px] font-bold w-[170px] lg:w-[272px] h-[56px] bg-[#FF7E1B] ease-in-out duration-300 border-2 hover:bg-white hover:text-[#FF7E1B] rounded-2xl"
               >
@@ -92,7 +91,7 @@ const SingleItem = () => {
                   <BsCart3 />
                 </span>
                 Add to cart
-              </Link>
+              </button>
             </div>
           </div>
         </div>
