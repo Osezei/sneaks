@@ -9,24 +9,25 @@ export const links = [
     title: "collections",
     url: "/collection",
   },
+
   {
     id: 3,
-    title: "men",
-    url: "/men",
-  },
-  {
-    id: 4,
-    title: "women",
-    url: "/women",
-  },
-  {
-    id: 5,
     title: "about",
     url: "/about",
   },
   {
-    id: 6,
+    id: 4,
     title: "contact",
     url: "/contact",
   },
 ];
+// {
+//   id: 3,
+//   title: "men",
+//   url: "/men",
+// },
+// {
+//   id: 4,
+//   title: "women",
+//   url: "/women",
+// },
