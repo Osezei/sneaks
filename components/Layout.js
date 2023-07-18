@@ -9,7 +9,7 @@ const Layout = ({ children, activePage }) => {
         <title>{activePage} -- Sneakers</title>
       </Head>
       <Navigation activePage={activePage} />
-      {children}
+      <div className="lg:mb-10">{children}</div>
     </section>
   );
 };

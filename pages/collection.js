@@ -152,7 +152,7 @@ const Collection = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {shoes.map((shoe) => {
               const { id, image, name, price } = shoe;
               return (
