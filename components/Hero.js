@@ -28,7 +28,7 @@ const Hero = () => {
               );
             })}
           </div>
-          <div className="hidden lg:flex mt-8">
+          <div className="hidden lg:flex justify-between mt-8">
             {img.map(({ image, id, title }) => {
               return (
                 <Image
@@ -38,10 +38,10 @@ const Hero = () => {
                   width={88}
                   height={88}
                   onClick={() => setToggled(id)}
-                  className={`w-[88px] h-[88px] ${
+                  className={`w-[88px] h-[88px] rounded-[10px]  ${
                     toggled === id
-                      ? "mr-[31px] rounded-[10px] cursor-pointer border-2 border-[#FF7E1B] ease-in-out"
-                      : "mr-[31px] rounded-[10px] cursor-pointer ease-in-out"
+                      ? " cursor-pointer border-2 border-[#FF7E1B] ease-in-out"
+                      : " cursor-pointer ease-in-out"
                   }`}
                 />
               );
