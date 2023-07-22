@@ -1,10 +1,24 @@
-import React, { useContext, useReducer, useEffect } from "react";
+import React, { useContext, useReducer, useEffect, useState } from "react";
 import { kicks } from "./data";
 import reducer from "./reducer";
 
 const AppContext = React.createContext();
 
 const AppProvider = function ({ children }) {
+  const ls = typeof window !== "undefined" ? window.localStorage : null;
+  const [cartProducts, setCartProducts] = useState([]);
+  useEffect(() => {
+    if (cartProducts?.length > 0) {
+      ls?.setItem("cart", JSON.stringify(cartProducts));
+    }
+  }, [cartProducts]);
+
+  useEffect(() => {
+    if (ls && ls.getItem("cart")) {
+      setCartProducts(JSON.parse(ls.getItem("cart")));
+    }
+  }, []);
+
   const initialState = {
     shoes: kicks,
     allShoes: kicks,
@@ -12,7 +26,7 @@ const AppProvider = function ({ children }) {
     minimumPrice: 0,
     maximumPrice: 3000,
     price: "",
-    cart: [],
+    cart: cartProducts,
     totalShoes: 0,
     totalAmount: 0,
     tempstock: 1,
@@ -53,6 +67,7 @@ const AppProvider = function ({ children }) {
 
   useEffect(() => {
     dispatch({ type: "COUNT_TOTAL_CART_ITEMS" });
+    localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
 
   const addToCart = (id, amount, item) => {

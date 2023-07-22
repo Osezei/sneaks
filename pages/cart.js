@@ -4,9 +4,8 @@ import Navigation from "@/components/Navigation";
 import Image from "next/image";
 import { MdDeleteOutline } from "react-icons/md";
 import { CiFaceFrown } from "react-icons/ci";
-
 import { AiFillMinusSquare, AiFillPlusSquare } from "react-icons/ai";
-import { Link } from "react-router-dom";
+
 const Cart = () => {
   const {
     cart,
